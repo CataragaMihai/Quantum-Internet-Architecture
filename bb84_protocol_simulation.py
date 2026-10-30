@@ -77,15 +77,15 @@ def create_full_circuit(alice_bits, alice_bases, bob_bases):
     return qc
 
 
-def bb84_protocol(n_bits=4, seed=0):
+def bb84_protocol(n_bits=16, seed=0):
     """Run BB84 locally with Qiskit's built-in simulator."""
     if n_bits < 1:
         raise ValueError("n_bits must be at least 1")
 
     rng = np.random.default_rng(seed)
-    alice_bits = rng.integers(2, size=n_bits)
-    alice_bases = rng.integers(2, size=n_bits)
-    bob_bases = rng.integers(2, size=n_bits)
+    alice_bits = rng.integers(2, size=n_bits).tolist()
+    alice_bases = rng.integers(2, size=n_bits).tolist()
+    bob_bases = rng.integers(2, size=n_bits).tolist()
 
     message = encode_messages(alice_bits, alice_bases)
     bob_circuits = measure_message(message, bob_bases)
@@ -134,6 +134,6 @@ def analyze_results(results):
 if __name__ == "__main__":
     try:
         print("Running BB84 on Qiskit's local simulator:")
-        analyze_results(bb84_protocol(n_bits=4))
+        analyze_results(bb84_protocol(n_bits=16))
     except Exception as exc:
         print(f"Error: {exc}")

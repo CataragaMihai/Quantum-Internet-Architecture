@@ -18,6 +18,17 @@ This is a revised version (October 2026) of the paper presented at the conferenc
 
 An operational Python experiment using the Qiskit SDK and a local simulator to demonstrate the BB84 protocol for quantum key distribution.
 
+## Requirements
+
+- Python 3
+- Qiskit
+- NumPy
+
+Install the required Python packages with:
+
+```bash
+pip install qiskit numpy
+```
 
 ## Code Overview
 
@@ -50,6 +61,7 @@ Success: keys match
 Local simulator job ID: 46010c7d-e77e-4d8e-ad8a-da9f61680b04
 
 Full circuit:
+```
      ┌───┐ ░ ┌─┐              
 q_0: ┤ X ├─░─┤M├──────────────
      ├───┤ ░ └╥┘┌───┐┌─┐      
@@ -61,3 +73,4 @@ q_3: ──────░──╫─┤ H ├─╫──╫─┤M├
            ░  ║ └───┘ ║  ║ └╥┘
 c: 4/═════════╩═══════╩══╩══╩═
               0       1  2  3 
+```
